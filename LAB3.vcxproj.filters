@@ -13,10 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="IEEE754">
+      <UniqueIdentifier>{71a07125-a556-4ce5-b02b-1167d016fa18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LAB3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bit_type.cpp">
+      <Filter>IEEE754</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bit_type.h">
+      <Filter>IEEE754</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

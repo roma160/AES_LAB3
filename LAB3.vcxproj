@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bit_type.cpp" />
     <ClCompile Include="LAB3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bit_type.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

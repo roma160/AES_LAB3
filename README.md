@@ -7,3 +7,5 @@ The solution source code: [`LAB3.cpp`](./LAB3.cpp)
 ## 1. Variant
 
 F(a,b)=a*b/(b+2.4)
+
+12. *11h(exponent).31m(digits)*
