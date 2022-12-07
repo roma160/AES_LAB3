@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="bit_type.cpp" />
     <ClCompile Include="LAB3.cpp" />
-    <ClCompile Include="mod_stack.cpp" />
     <ClCompile Include="processor.cpp" />
   </ItemGroup>
   <ItemGroup>
