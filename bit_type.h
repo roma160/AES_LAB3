@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 /// <summary>
 /// The memory structure:
@@ -47,6 +48,16 @@ public:
 	mem_t get_exponent() const;
 	mem_t get_digits() const;
 
+	void set_sign(mem_t value);
+	void set_exponent(mem_t value);
+	void set_digits(mem_t value);
+
 	double get_double() const;
+	void set_double(double value);
+
+
+	std::string get_bit_string() const;
+
+	bit_type to_non_normalized() const;
 };
 
