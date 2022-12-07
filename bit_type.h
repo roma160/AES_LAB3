@@ -55,6 +55,14 @@ public:
 	double get_double() const;
 	void set_double(double value);
 
+	void set_max();
+	void set_min();
+	void set_abs_min();
+
+	void set_infty();
+	void set_minfty();
+	void set_nan();
+
 
 	std::string get_bit_string() const;
 

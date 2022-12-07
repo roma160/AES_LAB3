@@ -87,6 +87,48 @@ void bit_type::set_double(double value)
 	set_range(digits_len, (buff.bits & get_mask(0, 52)) >> (52 - digits_len));
 }
 
+void bit_type::set_max()
+{
+	set_digits((1 << digits_len) - 1);
+	set_exponent((1 << exponent_len) - 2);
+	set_digits(0);
+}
+
+void bit_type::set_min()
+{
+	set_digits((1 << digits_len) - 1);
+	set_exponent((1 << exponent_len) - 2);
+	set_sign(1);
+}
+
+void bit_type::set_abs_min()
+{
+	set_digits(1);
+	set_exponent(0);
+	set_sign(0);
+}
+
+void bit_type::set_infty()
+{
+	set_digits(0);
+	set_exponent((1 << exponent_len) - 1);
+	set_sign(0);
+}
+
+void bit_type::set_minfty()
+{
+	set_digits(0);
+	set_exponent((1 << exponent_len) - 1);
+	set_sign(1);
+}
+
+void bit_type::set_nan()
+{
+	set_digits(1);
+	set_exponent((1 << exponent_len) - 1);
+	set_sign(0);
+}
+
 std::string to_bite_string(bit_type::mem_t n, short length)
 {
 	std::stringstream s;
