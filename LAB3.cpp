@@ -1,7 +1,27 @@
 #include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+
 #include "bit_type.h"
+#include "processor.h"
 
 using namespace std;
+
+vector<string> read_file(string filename = "program.txt")
+{
+    ifstream file(filename, ios_base::in);
+    vector<string> ret{};
+    string buff;
+    while (getline(file, buff))
+    {
+        if (buff.empty() || buff[0] == '#' || buff[0] == '\r') continue;
+        ret.push_back(buff);
+        //cout << buff << "\n";
+    }
+    file.close();
+    return ret;
+}
 
 int main()
 {
@@ -32,4 +52,17 @@ int main()
 
     buff.set_nan();
     cout << buff.get_bit_string() << " " << buff.get_double() << "\n";
+
+
+    cout << "\nLoading and starting the program:\n";
+    auto program = read_file();
+    processor p(program);
+    cout << p.get_program_info() << "\nStarting debug: \n";
+
+    while (p.do_tick())
+    {
+        cout << p.get_state();
+        p.end_tick();
+        cin.get();
+    }
 }

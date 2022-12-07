@@ -1,0 +1,13 @@
+# F(a,b)=a*b/(b+2.4)
+# 
+# a = 12.5
+# b = -78.1
+
+push -78.1
+dup
+push 12.5
+mul
+rev
+push 2.4
+add
+div

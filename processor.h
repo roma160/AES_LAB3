@@ -34,6 +34,8 @@ private:
         bit_type val;
 
         std::string str() const;
+
+        bool has_val() const;
     } IR;
 
     std::vector<std::string> program;

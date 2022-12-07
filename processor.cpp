@@ -14,8 +14,14 @@ std::map<processor::command::name_t, const char*> processor::command::name_map{
 std::string processor::command::str() const
 {
 	stringstream ret;
-	ret << name_map[name] << " " << val.get_bit_string();
+	ret << name_map[name];
+	if(has_val()) ret << " " << val.get_bit_string() << " " << val.get_double();
 	return ret.str();
+}
+
+bool processor::command::has_val() const
+{
+	return name == push;
 }
 
 processor::processor(vector<string> program, const size_t ram_size):
@@ -43,7 +49,7 @@ bool processor::do_tick()
 			) name++;
 
 		IR.name = (command::name_t)name;
-		if (IR.name == command::push)
+		if (IR.has_val())
 		{
 			double buff;
 			s >> buff;
@@ -63,29 +69,29 @@ bool processor::do_tick()
 		case command::add:
 		{
 			bit_type a = stack.pop();
-			auto b = stack.top();
-			b.set_double(b.get_double() + a.get_double());
+			auto b = &stack.top();
+			b->set_double(b->get_double() + a.get_double());
 			break;
 		}
 		case command::sub:
 		{
 			bit_type a = stack.pop();
-			auto b = stack.top();
-			b.set_double(b.get_double() - a.get_double());
+			auto b = &stack.top();
+			b->set_double(b->get_double() - a.get_double());
 			break;
 		}
 		case command::mul:
 		{
 			bit_type a = stack.pop();
-			auto b = stack.top();
-			b.set_double(b.get_double() * a.get_double());
+			auto b = &stack.top();
+			b->set_double(b->get_double() * a.get_double());
 			break;
 		}
 		case command::div:
 		{
 			bit_type a = stack.pop();
-			auto b = stack.top();
-			b.set_double(b.get_double() / a.get_double());
+			auto b = &stack.top();
+			b->set_double(b->get_double() / a.get_double());
 			break;
 		}
 		case command::dup:
@@ -133,8 +139,8 @@ std::string processor::get_state() const
 
 	ss << "Stack state:\n";
 	const auto stack_iter = stack.get_vector();
-	for (short i = 0; i < stack_size; i++) {
-		ss << ((short )SL == i) ? ">" : " ";
+	for (short i = stack_size - 1; i >= 0; i--) {
+		ss << (((short )SL == i) ? ">" : " ");
 		ss << (*stack_iter)[i].get_bit_string() << " ";
 		ss << (*stack_iter)[i].get_double() << "\n";
 	}
@@ -142,6 +148,7 @@ std::string processor::get_state() const
 	ss << "PC = " << PC << "\n";
 	ss << "TC = " << TC << "\n";
 	ss << "RS = " << to_binary(RS, 8) << "\n";
+	ss << "LS = " << SL << "\n";
 
 	if (TC == tc_num - 1) ss << delim;
 

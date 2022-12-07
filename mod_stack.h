@@ -29,7 +29,7 @@ template <typename T>
 mod_stack<T>::mod_stack(size_t size) : vector<T>(size)
 {
 	this->size = size;
-	this->head = 0;
+	this->head = size - 1;
 }
 
 template <typename T>

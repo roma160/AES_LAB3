@@ -148,6 +148,9 @@
     <ClInclude Include="mod_stack.h" />
     <ClInclude Include="processor.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="program.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
