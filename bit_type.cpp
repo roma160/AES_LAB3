@@ -87,6 +87,9 @@ void bit_type::set_double(double value)
 	set_range(digits_len, (buff.bits & get_mask(0, 52)) >> (52 - digits_len));
 }
 
+void bit_type::set_double_from_str(std::string str)
+{ set_double(std::stod(str)); }
+
 void bit_type::set_max()
 {
 	set_digits((1 << digits_len) - 1);

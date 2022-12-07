@@ -54,6 +54,7 @@ public:
 
 	double get_double() const;
 	void set_double(double value);
+	void set_double_from_str(std::string str);
 
 	void set_max();
 	void set_min();

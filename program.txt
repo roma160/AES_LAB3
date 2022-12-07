@@ -1,9 +1,9 @@
 # F(a,b)=a*b/(b+2.4)
 # 
 # a = 12.5
-# b = -78.1
+# b = -7.81E1
 
-push -78.1
+push -7.81E1
 dup
 push 12.5
 mul
