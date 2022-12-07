@@ -141,9 +141,13 @@
   <ItemGroup>
     <ClCompile Include="bit_type.cpp" />
     <ClCompile Include="LAB3.cpp" />
+    <ClCompile Include="mod_stack.cpp" />
+    <ClCompile Include="processor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bit_type.h" />
+    <ClInclude Include="mod_stack.h" />
+    <ClInclude Include="processor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
