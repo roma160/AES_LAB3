@@ -63,6 +63,8 @@ int main()
     {
         cout << p.get_state();
         p.end_tick();
+#ifdef _WIN32
         cin.get();
+#endif
     }
 }
